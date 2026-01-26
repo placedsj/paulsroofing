@@ -99,17 +99,18 @@ export const Contact: React.FC = () => {
 
              {/* Service Area Map */}
              <div className="mt-12 relative z-10">
-                <div className="rounded-xl overflow-hidden shadow-lg border border-blue-400/30 h-48 bg-blue-800 relative group">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-blue-400/30 h-64 bg-slate-100 relative group">
                    <iframe 
                      width="100%" 
                      height="100%" 
                      src="https://www.openstreetmap.org/export/embed.html?bbox=-66.15%2C45.30%2C-65.70%2C45.55&amp;layer=mapnik" 
-                     className="w-full h-full opacity-80 group-hover:opacity-90 transition-opacity grayscale-[30%]"
-                     style={{ pointerEvents: 'none', border: 0 }}
+                     className="w-full h-full"
+                     style={{ border: 0 }}
                      title="Service Area Map"
+                     loading="lazy"
                    ></iframe>
-                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-primary/90 to-transparent p-4 flex items-end justify-between">
-                     <p className="text-white text-xs font-bold uppercase tracking-wider flex items-center">
+                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-primary/90 to-transparent p-4 flex items-end justify-between pointer-events-none">
+                     <p className="text-white text-xs font-bold uppercase tracking-wider flex items-center drop-shadow-md">
                        <MapPin className="w-3 h-3 mr-1" /> Kennebecasis Valley
                      </p>
                    </div>

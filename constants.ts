@@ -16,23 +16,26 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'installation',
     title: 'New Roof Installation',
-    description: 'Expert installation of high-quality asphalt shingles and durable metal roofing systems. We build roofs designed to withstand the harsh Atlantic Canadian climate.',
+    description: 'Specializing in GAF Timberline HDZ asphalt shingles and Vicwest steel roofing, our installations are engineered for the East Coast. We strip every roof to the deck to inspect for rot, install premium ice and water shields in valleys and eaves, and ensure proper attic ventilation to extend your roof\'s lifespan. Whether you choose the classic look of architectural shingles or the lifetime durability of standing seam metal, we guarantee a weather-tight finish.',
     Icon: Home,
-    image: 'https://images.unsplash.com/photo-1632759902344-77e8a93910c6?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1632759902344-77e8a93910c6?q=80&w=800&auto=format&fit=crop',
+    features: ["GAF & IKO Certified", "Ice & Water Shielding", "Proper Attic Ventilation", "50-Year Material Warranty"]
   },
   {
     id: 'repair',
     title: 'Roof Repair',
-    description: 'Fast and reliable repairs for leaks, storm damage, missing shingles, and structural issues. We prevent small problems from becoming major expenses.',
+    description: 'Immediate solutions for wind-damaged shingles, leaking skylights, and deteriorated flashing. We address the root cause of leaks, not just the symptoms, using high-grade sealants and matching materials. From fixing ice dam damage in February to replacing blown-off shingles in September, our team restores the integrity of your roof to protect your home’s interior from water damage and mold.',
     Icon: Wrench,
-    image: 'https://images.unsplash.com/photo-1629731636181-7f09322e6b26?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1629731636181-7f09322e6b26?q=80&w=800&auto=format&fit=crop',
+    features: ["Storm Damage Specialist", "Leak Tracing Experts", "Flashing Replacement", "Emergency Tarping"]
   },
   {
     id: 'inspection',
     title: 'Roof Inspection',
-    description: 'Comprehensive roof assessments to identify potential issues early. Perfect for real estate transactions, insurance claims, or annual maintenance.',
+    description: 'A proactive 21-point assessment covering every inch of your roofing system. We examine shingle condition for granular loss, check chimney step-flashing, verify gutter drainage, and inspect attic insulation for moisture. Ideal for new homebuyers or insurance documentation, our detailed reports provide clear photos of defects and honest recommendations for maintenance or replacement.',
     Icon: ShieldCheck,
-    image: 'https://images.unsplash.com/photo-1594950965706-538943f6797a?q=80&w=800&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1594950965706-538943f6797a?q=80&w=800&auto=format&fit=crop',
+    features: ["21-Point Checklist", "Photo Documentation", "Insurance Assessments", "No-Obligation Quotes"]
   }
 ];
 
