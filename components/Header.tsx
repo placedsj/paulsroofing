@@ -46,7 +46,7 @@ export const Header: React.FC = () => {
               <a 
                 key={item.label} 
                 href={item.href}
-                className="text-slate-300 hover:text-white font-medium transition-colors text-sm uppercase tracking-wide"
+                className="text-slate-300 hover:text-white hover:scale-105 font-medium transition-all text-sm uppercase tracking-wide"
               >
                 {item.label}
               </a>
@@ -84,8 +84,8 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 z-40 bg-brand-dark flex flex-col pt-24 px-6 transition-transform duration-300 ease-in-out md:hidden ${
-          isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed inset-y-0 right-0 w-full max-w-sm z-40 bg-brand-dark flex flex-col pt-24 px-6 transition-transform duration-300 ease-in-out md:hidden ${
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col space-y-6 h-full pb-8 overflow-y-auto">

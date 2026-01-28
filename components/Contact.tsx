@@ -99,15 +99,16 @@ export const Contact: React.FC = () => {
 
              {/* Service Area Map */}
              <div className="mt-12 relative z-10">
-                <div className="rounded-xl overflow-hidden shadow-lg border border-blue-400/30 h-64 bg-slate-100 relative group">
+                <div className="rounded-xl overflow-hidden shadow-lg border border-blue-400/30 h-80 bg-slate-100 relative"> {/* Increased height to h-80 */}
                    <iframe 
                      width="100%" 
                      height="100%" 
                      src="https://www.openstreetmap.org/export/embed.html?bbox=-66.15%2C45.30%2C-65.70%2C45.55&amp;layer=mapnik" 
-                     className="w-full h-full"
+                     className="w-full h-full border-0" {/* Ensure border-0 is applied */}
                      style={{ border: 0 }}
                      title="Service Area Map"
                      loading="lazy"
+                     allowFullScreen={true} {/* Explicitly allow fullscreen, which implies interactivity */}
                    ></iframe>
                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-primary/90 to-transparent p-4 flex items-end justify-between pointer-events-none">
                      <p className="text-white text-xs font-bold uppercase tracking-wider flex items-center drop-shadow-md">

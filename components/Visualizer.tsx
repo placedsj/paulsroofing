@@ -44,7 +44,7 @@ export const Visualizer: React.FC = () => {
                 <label className="block text-sm font-semibold text-slate-300 mb-3">
                   Select Color: <span className="text-white ml-2">{selectedColor.name}</span>
                 </label>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3"> {/* Changed from grid-cols-3 to grid-cols-2 md:grid-cols-3 */}
                   {ROOF_COLORS.map((color) => (
                     <button
                       key={color.id}
