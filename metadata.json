@@ -12,5 +12,7 @@
     "kennebecasis valley roofing",
     "paul's roofing"
   ],
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "camera"
+  ]
 }

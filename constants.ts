@@ -1,15 +1,17 @@
 import { Hammer, Home, ShieldCheck, Umbrella, Wrench } from 'lucide-react';
 import { NavItem, ServiceItem, TestimonialItem } from './types';
 
-export const COMPANY_NAME = "Paul's Roofing";
+export const COMPANY_NAME = "Paul's Roofing .ca"; // Updated for logo display
 export const PHONE_NUMBER = "(506) 271-4162";
 export const EMAIL_ADDRESS = "quotes@paulsroofing.ca";
 export const ADDRESS = "Quispamsis, New Brunswick";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'About Us', href: '#about' },
   { label: 'Testimonials', href: '#testimonials' },
-  { label: 'About', href: '#about' },
+  { label: 'Financing', href: '#financing' },
 ];
 
 export const SERVICES: ServiceItem[] = [
@@ -39,6 +41,11 @@ export const SERVICES: ServiceItem[] = [
   }
 ];
 
+export const ROOF_MATERIALS = [
+  { id: 'metal', name: 'Metal (Standing Seam)' },
+  { id: 'asphalt', name: 'Asphalt Shingles (Architectural)' },
+];
+
 export const ROOF_COLORS = [
   { id: 'onyx', name: 'Onyx Black', hex: '#343434', overlayOpacity: 0.85 },
   { id: 'slate', name: 'Slate Grey', hex: '#565656', overlayOpacity: 0.75 },
@@ -51,46 +58,28 @@ export const ROOF_COLORS = [
 export const TESTIMONIALS: TestimonialItem[] = [
   {
     id: '1',
-    name: 'Sarah Jenkins',
+    name: 'Nancy Freeman',
     location: 'Quispamsis',
-    quote: 'Paul’s team was incredible. They finished our metal roof in two days and left the yard spotless. Highly recommended!',
-    rating: 5
+    quote: 'My new roof is fantastic!',
+    rating: 5,
+    avatar: 'https://randomuser.me/api/portraits/women/68.jpg'
   },
   {
     id: '2',
-    name: 'Mike Doucette',
+    name: 'Linuspie Nope',
     location: 'Rothesay',
-    quote: 'Best pricing I found in the Valley, but the quality didn’t suffer. The new architectural shingles look amazing.',
-    rating: 5
+    quote: 'Professional & reliable service!',
+    rating: 5,
+    avatar: 'https://randomuser.me/api/portraits/men/84.jpg'
   },
   {
     id: '3',
-    name: 'Linda Cormier',
+    name: 'Fauya Botos Riley',
     location: 'Hampton',
-    quote: 'We had a leak during that last big storm. Paul came out personally to patch it until the weather cleared for a full replacement.',
-    rating: 5
+    quote: 'Transformed the look the home!',
+    rating: 5,
+    avatar: 'https://randomuser.me/api/portraits/women/6.jpg'
   }
 ];
 
-export const FAQ_ITEMS = [
-  {
-    question: "How long does a roof replacement typically take?",
-    answer: "Most residential roof replacements in Quispamsis are completed within 1-2 days. Complex roof lines or larger commercial projects may take longer. We always ensure your property is watertight before leaving for the day."
-  },
-  {
-    question: "Do you install roofs during the winter?",
-    answer: "Yes, we operate year-round. While some materials like standard asphalt shingles require specific temperatures to seal immediately, we use specialized techniques and cold-weather materials to ensure a secure installation even in winter months."
-  },
-  {
-    question: "What warranties do you offer?",
-    answer: "We provide a 10-year workmanship warranty on all our installations. Additionally, the materials we use (like GAF or IKO shingles) come with manufacturer warranties ranging from 25 years to lifetime limited coverage."
-  },
-  {
-    question: "How do I know if I need a repair or a full replacement?",
-    answer: "Not every leak requires a new roof. During our free inspection, we'll assess the condition of your shingles, flashing, and roof deck. If the damage is localized and the roof is relatively young, a repair is often the most cost-effective solution."
-  },
-  {
-    question: "Do you help with insurance claims?",
-    answer: "Absolutely. We have extensive experience working with insurance adjusters for storm and wind damage claims. We can provide detailed assessments and photos to help support your claim."
-  }
-];
+// Removed FAQ_ITEMS as FAQ section is removed from App.tsx

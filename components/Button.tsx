@@ -1,7 +1,7 @@
 import React from 'react';
 
 type BaseButtonProps = {
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'redCta'; // Added 'redCta'
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   children: React.ReactNode;
@@ -34,8 +34,9 @@ export const Button: React.FC<ButtonProps> = (props) => {
   
   const variants = {
     primary: "bg-brand-primary hover:bg-sky-700 text-white shadow-lg shadow-sky-900/20 focus:ring-sky-500",
-    secondary: "bg-brand-dark hover:bg-slate-800 text-white shadow-lg shadow-slate-900/20 focus:ring-slate-500",
-    outline: "bg-transparent border-2 border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white focus:ring-sky-500"
+    secondary: "bg-slate-800 hover:bg-slate-700 text-white shadow-lg shadow-slate-900/20 focus:ring-slate-500", // Adjusted for light background context
+    redCta: "bg-brand-red hover:bg-brand-red-dark text-white shadow-lg shadow-red-900/20 focus:ring-red-500", // New Red CTA variant
+    outline: "bg-transparent border-2 border-slate-400 text-slate-700 hover:bg-slate-700 hover:text-white focus:ring-slate-500" // Adjusted for light background context
   };
 
   const sizes = {

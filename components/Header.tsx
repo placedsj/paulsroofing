@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Phone, ArrowRight } from 'lucide-react';
+import { Menu, X, Phone, ArrowRight, Search, Settings } from 'lucide-react';
 import { NAV_ITEMS, PHONE_NUMBER } from '../constants';
 import { Button } from './Button';
 import { Logo } from './Logo';
@@ -30,23 +30,24 @@ export const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-brand-dark/95 backdrop-blur-sm py-2 shadow-md' : 'bg-brand-dark py-4'
+        isScrolled ? 'bg-slate-100/95 backdrop-blur-sm py-2 shadow-md' : 'bg-slate-100 py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 relative z-50">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center group" aria-label="Paul's Roofing Home" onClick={() => setIsMobileMenuOpen(false)}>
-            <Logo className="h-14 w-auto group-hover:scale-105 transition-transform duration-300" variant="light" />
+            <Logo className="h-14 w-auto group-hover:scale-105 transition-transform duration-300" variant="dark" /> {/* Changed to dark variant */}
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center space-x-8">
             {NAV_ITEMS.map((item) => (
               <a 
                 key={item.label} 
                 href={item.href}
-                className="text-slate-300 hover:text-white hover:scale-105 font-medium transition-all text-sm uppercase tracking-wide"
+                className="text-brand-dark hover:text-brand-primary hover:scale-105 font-medium transition-all text-sm uppercase tracking-wide" {/* Changed text color */}
+                onClick={() => document.getElementById(item.href.substring(1))?.scrollIntoView({behavior: 'smooth'})}
               >
                 {item.label}
               </a>
@@ -55,23 +56,27 @@ export const Header: React.FC = () => {
 
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex items-center space-x-2 text-white mr-4">
-              <Phone className="w-4 h-4 text-brand-accent" />
-              <span className="font-semibold">{PHONE_NUMBER}</span>
-            </div>
+            {/* Search and Settings icons for desktop */}
+            <button className="hidden lg:block text-brand-dark hover:text-brand-primary transition-colors p-2 rounded-full hover:bg-slate-200" aria-label="Search"> {/* Changed text/hover colors */}
+              <Search className="w-5 h-5" />
+            </button>
+            <button className="hidden lg:block text-brand-dark hover:text-brand-primary transition-colors p-2 rounded-full hover:bg-slate-200" aria-label="Settings"> {/* Changed text/hover colors */}
+              <Settings className="w-5 h-5" />
+            </button>
+
             <div className="hidden md:block">
               <Button 
-                href="#contact" 
+                href="#visualizer"
                 size="sm" 
-                className="!bg-orange-600 hover:!bg-orange-700 !text-white !font-extrabold !shadow-orange-900/20 hover:scale-105 border-b-4 border-orange-800 active:border-b-0 active:translate-y-1 transition-all"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
+                variant="primary" // Explicitly use primary blue for desktop estimate
+                onClick={() => document.getElementById('visualizer')?.scrollIntoView({behavior: 'smooth'})}
               >
-                Get Free Estimate <ArrowRight className="ml-2 w-4 h-4" />
+                Free Estimate
               </Button>
             </div>
             
             <button 
-              className="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors z-50 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              className="md:hidden text-brand-dark p-2 rounded-lg hover:bg-slate-200 transition-colors z-50 focus:outline-none focus:ring-2 focus:ring-brand-accent" {/* Changed text/hover colors */}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMobileMenuOpen}
@@ -84,7 +89,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-y-0 right-0 w-full max-w-sm z-40 bg-brand-dark flex flex-col pt-24 px-6 transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 right-0 w-full max-w-sm z-40 bg-slate-100 flex flex-col pt-24 px-6 transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -94,20 +99,23 @@ export const Header: React.FC = () => {
               <a 
                 key={item.label} 
                 href={item.href}
-                className="text-white font-bold text-2xl py-4 border-b border-slate-800 hover:text-brand-accent transition-colors flex justify-between items-center group"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-brand-dark font-bold text-2xl py-4 border-b border-slate-300 hover:text-brand-primary transition-colors flex justify-between items-center group" {/* Changed text/border colors */}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  document.getElementById(item.href.substring(1))?.scrollIntoView({behavior: 'smooth'});
+                }}
               >
                 {item.label}
-                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-accent" />
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-primary" />
               </a>
             ))}
           </nav>
 
           <div className="mt-auto space-y-6">
-            <div className="bg-slate-800/50 p-6 rounded-2xl space-y-4">
-              <p className="text-slate-400 text-sm font-medium uppercase tracking-wider">Contact Us Directly</p>
-              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center space-x-3 text-white text-xl font-bold">
-                <div className="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary">
+            <div className="bg-slate-200/50 p-6 rounded-2xl space-y-4"> {/* Adjusted background */}
+              <p className="text-slate-600 text-sm font-medium uppercase tracking-wider">Contact Us Directly</p> {/* Adjusted text color */}
+              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center space-x-3 text-brand-dark text-xl font-bold"> {/* Adjusted text color */}
+                <div className="w-10 h-10 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary"> {/* Adjusted background opacity */}
                   <Phone className="w-5 h-5" />
                 </div>
                 <span>{PHONE_NUMBER}</span>
@@ -117,10 +125,10 @@ export const Header: React.FC = () => {
             <Button 
               fullWidth 
               size="lg"
-              className="!bg-orange-600 hover:!bg-orange-700 !text-white !font-bold border-b-4 border-orange-800 active:border-b-0 active:translate-y-1 shadow-xl"
+              variant="redCta" // Changed to new redCta variant
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'});
+                document.getElementById('visualizer')?.scrollIntoView({behavior: 'smooth'});
               }}
             >
               Get Free Estimate

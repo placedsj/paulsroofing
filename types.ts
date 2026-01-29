@@ -15,6 +15,7 @@ export interface TestimonialItem {
   location: string;
   quote: string;
   rating: number;
+  avatar: string; // URL for the avatar image
 }
 
 export interface NavItem {
