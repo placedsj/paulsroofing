@@ -51,7 +51,13 @@ export const Handbook: React.FC = () => {
 
           <div className="relative">
             <div className="aspect-square rounded-[3rem] overflow-hidden shadow-2xl">
-              <img src="input_file_27.png" alt="Roofing excellence" className="w-full h-full object-cover" />
+              <img 
+                src="input_file_27.png" 
+                alt="Roofing excellence" 
+                loading="lazy" 
+                decoding="async"
+                className="w-full h-full object-cover" 
+              />
             </div>
             <div className="absolute -bottom-10 -left-10 bg-brand-dark text-white p-10 rounded-[2rem] shadow-2xl hidden md:block max-w-xs">
               <p className="text-sm font-bold uppercase tracking-widest text-brand-accent mb-2">Did you know?</p>

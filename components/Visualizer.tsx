@@ -47,6 +47,8 @@ export const Visualizer: React.FC = () => {
               <img 
                 src="input_file_29.png" 
                 alt="House visualization base" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-700"
               />
               

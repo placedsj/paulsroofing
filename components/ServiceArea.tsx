@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MapPin, Navigation, Map } from 'lucide-react';
 import { SERVICE_AREAS } from '../constants';
@@ -37,6 +36,8 @@ export const ServiceArea: React.FC = () => {
               <img 
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2000&auto=format&fit=crop" 
                 alt="New Brunswick Coastline" 
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover grayscale opacity-50"
               />
               <div className="absolute inset-0 bg-brand-primary/20 mix-blend-overlay"></div>

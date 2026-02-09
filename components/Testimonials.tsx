@@ -50,7 +50,13 @@ export const Testimonials: React.FC = () => {
               <div className="flex items-center mt-auto pt-6 border-t border-slate-50">
                 <div className="relative">
                   {t.avatar ? (
-                    <img src={t.avatar} alt={t.name} className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-brand-primary shadow-lg" />
+                    <img 
+                      src={t.avatar} 
+                      alt={t.name} 
+                      loading="lazy"
+                      decoding="async"
+                      className="w-12 h-12 rounded-full object-cover mr-4 border-2 border-brand-primary shadow-lg" 
+                    />
                   ) : (
                     <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary font-black mr-4 border-2 border-brand-primary">
                       {t.name.charAt(0)}
@@ -80,6 +86,8 @@ export const Testimonials: React.FC = () => {
                 className="inline-block h-10 w-10 rounded-full ring-4 ring-white" 
                 src={`https://randomuser.me/api/portraits/thumb/men/${i + 10}.jpg`} 
                 alt="" 
+                loading="lazy"
+                decoding="async"
               />
             ))}
             <div className="flex items-center justify-center h-10 w-10 rounded-full bg-brand-primary ring-4 ring-white text-[10px] font-black text-white">

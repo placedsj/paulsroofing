@@ -10,7 +10,13 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-20">
           <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <img src="input_file_31.png" alt="Paul's Roofing Round Logo" className="h-40 w-auto mb-8 grayscale brightness-200" />
+            <img 
+              src="input_file_31.png" 
+              alt="Paul's Roofing Round Logo" 
+              loading="lazy"
+              decoding="async"
+              className="h-40 w-auto mb-8 grayscale brightness-200" 
+            />
             <p className="text-slate-400 font-medium leading-relaxed mb-8">
               Serving Southern New Brunswick for over 30 years. We don't just build roofs; we build relationships. Honest, reliable, and durable.
             </p>

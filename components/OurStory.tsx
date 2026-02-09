@@ -11,6 +11,8 @@ export const OurStory: React.FC = () => {
               <img 
                 src="input_file_30.png" 
                 alt="Paul Curry working on a roof" 
+                loading="lazy"
+                decoding="async"
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent"></div>
