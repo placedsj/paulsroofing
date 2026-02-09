@@ -1,94 +1,85 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Mail, Phone, MapPin, ShieldCheck, Award } from 'lucide-react';
 import { COMPANY_NAME, ADDRESS, PHONE_NUMBER, EMAIL_ADDRESS } from '../constants';
-import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-brand-dark text-slate-300 relative pt-12">
-      {/* Wave SVG */}
-      <svg 
-        className="absolute top-0 left-0 w-full h-auto text-white" 
-        style={{ transform: 'translateY(-99%)' }} 
-        viewBox="0 0 1440 100" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M0 100L1440 100L1440 0C1280 33.3333 1120 50 960 50C800 50 640 33.3333 480 0C320 -33.3333 160 0 0 0L0 100Z" fill="white"/>
-      </svg>
-
-
-      <div className="container mx-auto px-4 md:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          {/* Column 1: Logo & Social */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-1">
-            <div className="mb-6">
-              <Logo className="h-16 w-auto" variant="light" />
-            </div>
-            <p className="text-slate-400 max-w-sm mb-6">
-              Proudly serving Quispamsis and the Kennebecasis Valley with top-tier roofing solutions. Quality you can trust, durability that lasts.
+    <footer className="bg-brand-dark text-slate-300 relative pt-24 pb-12 overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary opacity-50"></div>
+      
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-20">
+          <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <img src="input_file_31.png" alt="Paul's Roofing Round Logo" className="h-40 w-auto mb-8 grayscale brightness-200" />
+            <p className="text-slate-400 font-medium leading-relaxed mb-8">
+              Serving Southern New Brunswick for over 30 years. We don't just build roofs; we build relationships. Honest, reliable, and durable.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-brand-primary hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-brand-primary hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-brand-primary hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="p-2 bg-slate-800 rounded-full hover:bg-brand-primary hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+            <div className="flex space-x-6">
+              <a href="#" className="p-3 bg-slate-800 rounded-2xl hover:bg-brand-primary hover:text-white transition-all duration-300 hover:-translate-y-1"><Facebook className="w-6 h-6" /></a>
+              <a href={`mailto:${EMAIL_ADDRESS}`} className="p-3 bg-slate-800 rounded-2xl hover:bg-brand-primary hover:text-white transition-all duration-300 hover:-translate-y-1"><Mail className="w-6 h-6" /></a>
             </div>
           </div>
           
-          {/* Column 2: Services */}
-          <div>
-            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Services</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#services" className="hover:text-brand-primary transition-colors">Metal Roofing</a></li>
-              <li><a href="#services" className="hover:text-brand-primary transition-colors">Asphalt Shingles</a></li>
-              <li><a href="#services" className="hover:text-brand-primary transition-colors">Repairs</a></li>
-              <li><a href="#" className="hover:text-brand-primary transition-colors">Melictictsimms, NB</a></li> {/* Placeholder */}
-              <li><a href="#" className="hover:text-brand-primary transition-colors">Quispamsis, NB</a></li> {/* Placeholder */}
-            </ul>
-          </div>
-          
-          {/* Column 3: About */}
-          <div>
-            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">About</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#about" className="hover:text-brand-primary transition-colors">Our Story</a></li>
-              <li><a href="#testimonials" className="hover:text-brand-primary transition-colors">Testimonials</a></li>
-              <li><a href="#" className="hover:text-brand-primary transition-colors">Careers</a></li> {/* Placeholder */}
-              <li><a href="#financing" className="hover:text-brand-primary transition-colors">Financing</a></li>
-            </ul>
+          <div className="col-span-1 lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h4 className="text-white font-black mb-8 uppercase text-xs tracking-[0.3em]">Our Expertise</h4>
+              <ul className="space-y-4 text-sm font-bold uppercase tracking-wider">
+                <li><a href="#services" className="hover:text-brand-primary transition-colors">Metal Roof Systems</a></li>
+                <li><a href="#services" className="hover:text-brand-primary transition-colors">Architectural Shingles</a></li>
+                <li><a href="#services" className="hover:text-brand-primary transition-colors">Low-Slope Flat Roofing</a></li>
+                <li><a href="#quote" className="hover:text-brand-primary transition-colors text-brand-accent">AI Powered Estimator</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-black mb-8 uppercase text-xs tracking-[0.3em]">Quick Navigation</h4>
+              <ul className="space-y-4 text-sm font-bold uppercase tracking-wider">
+                <li><a href="#workmanship" className="hover:text-brand-primary transition-colors">Project Gallery</a></li>
+                <li><a href="#handbook" className="hover:text-brand-primary transition-colors">Homeowner's Handbook</a></li>
+                <li><a href="#testimonials" className="hover:text-brand-primary transition-colors">Client Satisfaction</a></li>
+                <li><a href="#" className="hover:text-brand-primary transition-colors">KV Community Hub</a></li>
+              </ul>
+            </div>
           </div>
 
-          {/* Column 4: Resources */}
-          <div>
-            <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Resources</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-brand-primary transition-colors">Warranty Info</a></li> {/* Placeholder */}
-              <li><a href="#" className="hover:text-brand-primary transition-colors">FAQs</a></li> {/* Placeholder */}
-              <li><a href="#financing" className="hover:text-brand-primary transition-colors">Financing</a></li>
-            </ul>
+          <div className="bg-slate-800/50 p-10 rounded-[2.5rem] border border-slate-700/50">
+            <h4 className="text-white font-black mb-8 uppercase text-xs tracking-[0.3em]">Direct Contact</h4>
+            <div className="space-y-6">
+              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center group">
+                <div className="w-12 h-12 bg-brand-primary rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                  <Phone className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Call Anytime</p>
+                  <p className="text-xl font-black text-white">{PHONE_NUMBER}</p>
+                </div>
+              </a>
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-slate-700 rounded-2xl flex items-center justify-center mr-4">
+                  <MapPin className="w-6 h-6 text-brand-primary" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">Service Area</p>
+                  <p className="text-sm font-bold text-white leading-tight">{ADDRESS}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-start text-sm text-slate-500">
-          <div className="flex flex-col mb-4 md:mb-0">
-            <p className="font-bold text-white mb-1">Paul Curry</p>
-            <a href={`tel:${PHONE_NUMBER}`} className="flex items-center hover:text-white transition-colors mb-1">
-              <Phone className="w-3 h-3 mr-1 text-brand-primary" /> {PHONE_NUMBER}
-            </a>
-            <a href={`mailto:${EMAIL_ADDRESS}`} className="flex items-center hover:text-white transition-colors">
-              <Mail className="w-3 h-3 mr-1 text-brand-primary" /> {EMAIL_ADDRESS}
-            </a>
-            <div className="flex items-center mt-1">
-              <MapPin className="w-3 h-3 mr-1 text-brand-primary" /> {ADDRESS}
+        <div className="border-t border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 gap-6">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-brand-primary" />
+              <span>GAF & Vicwest Certified</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 text-brand-accent" />
+              <span>35+ Years Excellence</span>
             </div>
           </div>
-          <div className="flex flex-col items-center md:items-end text-slate-500">
+          <div className="flex flex-col items-center md:items-end">
             <p>&copy; {new Date().getFullYear()} {COMPANY_NAME}. All rights reserved.</p>
-            <div className="flex space-x-6 mt-2">
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Terms of Service</a>
-            </div>
+            <p className="mt-1 text-slate-600">Built to outlast the Atlantic Coast.</p>
           </div>
         </div>
       </div>

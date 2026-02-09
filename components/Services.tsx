@@ -1,83 +1,90 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { SERVICES } from '../constants';
-import { Check } from 'lucide-react';
+import { Check, ArrowUpRight } from 'lucide-react';
 
 export const Services: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const revealElements = sectionRef.current?.querySelectorAll('.reveal');
+    revealElements?.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
-      <section id="services" className="py-24 bg-slate-100 relative"> {/* Changed background to light slate */}
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-brand-primary font-bold tracking-wide uppercase mb-3 text-sm">Our Expertise</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-brand-dark mb-6">Professional Roofing Services</h3>
-            <p className="text-slate-700 text-lg"> {/* Adjusted text color */}
-              From complete installations to minor repairs, we treat every home in the Kennebecasis Valley as if it were our own.
-            </p>
-          </div>
+    <section id="services" ref={sectionRef} className="py-24 md:py-32 bg-slate-100 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-brand-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20 reveal">
+          <h2 className="text-brand-primary font-black tracking-[0.2em] uppercase mb-4 text-sm">Professional Grade</h2>
+          <h3 className="text-4xl md:text-5xl font-black text-brand-dark mb-6 tracking-tight uppercase">Mastering Every Peak</h3>
+          <p className="text-slate-600 text-lg leading-relaxed">
+            From the historic homes of Hampton to the modern estates of Rothesay, we provide roofing solutions that stand the test of time.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => (
-              <div key={service.id} className="group relative bg-slate-50 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-brand-primary/20 flex flex-col"> {/* Adjusted border */}
-                <div className="aspect-w-16 aspect-h-9 h-56 overflow-hidden relative">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-brand-dark/0 transition-colors"></div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {SERVICES.map((service, idx) => (
+            <div 
+              key={service.id} 
+              className={`reveal group relative bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-200 flex flex-col hover:-translate-y-2`}
+              style={{ transitionDelay: `${idx * 150}ms` }}
+            >
+              <div className="aspect-[16/10] overflow-hidden relative">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent opacity-60"></div>
                 
-                <div className="p-8 flex-1 flex flex-col">
-                  <div className="w-12 h-12 bg-brand-primary text-white rounded-lg flex items-center justify-center mb-4 -mt-14 relative z-10 shadow-lg group-hover:bg-brand-dark transition-colors border-2 border-slate-100"> {/* Adjusted border */}
-                    <service.Icon className="w-6 h-6" />
-                  </div>
-                  
-                  <h4 className="text-2xl font-bold text-brand-dark mb-3">{service.title}</h4>
-                  <p className="text-slate-600 leading-relaxed mb-6 text-sm">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-auto">
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {service.features.map((feature, idx) => (
-                        <span key={idx} className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sky-100 text-sky-800">
-                          <Check className="w-3 h-3 mr-1" />
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <a href="#contact" className="inline-flex items-center text-brand-primary font-semibold hover:text-brand-dark transition-colors group/link">
-                      Request Service <span className="ml-1 text-lg group-hover/link:translate-x-1 transition-transform">→</span>
-                    </a>
-                  </div>
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full flex items-center shadow-lg transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <span className="text-[10px] font-black text-brand-dark uppercase tracking-widest mr-1">Premium Grade</span>
+                  <Check className="w-3 h-3 text-green-500" />
                 </div>
               </div>
-            ))}
-          </div>
+              
+              <div className="p-8 flex-1 flex flex-col relative">
+                <div className="w-16 h-16 bg-brand-primary text-white rounded-2xl flex items-center justify-center mb-6 -mt-16 relative z-20 shadow-xl group-hover:bg-brand-dark transition-colors border-4 border-white">
+                  <service.Icon className="w-8 h-8" />
+                </div>
+                
+                <h4 className="text-2xl font-black text-brand-dark mb-4 group-hover:text-brand-primary transition-colors">{service.title}</h4>
+                <p className="text-slate-500 leading-relaxed mb-8 text-sm font-medium">
+                  {service.description}
+                </p>
+
+                <div className="mt-auto">
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {service.features.map((feature, fIdx) => (
+                      <span key={fIdx} className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-slate-100 text-slate-600 group-hover:bg-brand-primary/10 group-hover:text-brand-primary transition-colors">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <a 
+                    href="#visualizer" 
+                    className="inline-flex items-center text-sm font-black text-brand-dark hover:text-brand-primary transition-all group/link tracking-widest uppercase"
+                  >
+                    View Project Options <ArrowUpRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </section>
-      {/* Dummy Gallery Section for navigation */}
-      <section id="gallery" className="py-24 bg-slate-200 text-brand-dark flex items-center justify-center"> {/* Adjusted background and text color */}
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-brand-dark">Our Gallery</h2>
-          <p className="text-slate-600 mt-4">Coming Soon: A showcase of our finest roofing projects.</p>
-        </div>
-      </section>
-      {/* Dummy About Us Section for navigation */}
-      <section id="about" className="py-24 bg-slate-100 text-brand-dark flex items-center justify-center"> {/* Adjusted background */}
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-brand-dark">About Paul's Roofing</h2>
-          <p className="text-slate-600 mt-4">Learn more about our team and history.</p>
-        </div>
-      </section>
-      {/* Dummy Financing Section for navigation */}
-      <section id="financing" className="py-24 bg-slate-200 text-brand-dark flex items-center justify-center"> {/* Adjusted background and text color */}
-        <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-brand-dark">Financing Options</h2>
-          <p className="text-slate-600 mt-4">Explore flexible payment plans for your new roof.</p>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };

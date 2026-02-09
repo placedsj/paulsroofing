@@ -1,55 +1,43 @@
 import React from 'react';
-import { Phone, ArrowRight } from 'lucide-react';
 import { Button } from './Button';
-import { PHONE_NUMBER } from '../constants';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative h-screen min-h-[600px] flex items-center pt-20 overflow-hidden bg-slate-100"> {/* Changed background to light slate */}
-      {/* Background Image with Overlay */}
+    <section className="relative h-screen min-h-[700px] flex items-center justify-center pt-20 overflow-hidden bg-brand-dark">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1549429712-421b4a9a08e0?q=80&w=2670&auto=format&fit=crop" 
-          alt="Modern residential metal roof" 
-          className="w-full h-full object-cover"
+          src="input_file_24.png" 
+          alt="Roofing project background" 
+          className="w-full h-full object-cover animate-ken-burns opacity-40 grayscale-[30%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-100/90 via-slate-100/70 to-transparent"></div> {/* Adjusted gradient to light theme */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-slate-900/80"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight mb-4"> {/* Changed text to dark */}
-            UPGRADE TO METAL ROOFING
+      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center animate-fade-in-up">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black text-white leading-none mb-4 tracking-tighter uppercase drop-shadow-2xl">
+            PAUL'S ROOFING
           </h1>
           
-          <p className="text-lg md:text-xl text-slate-700 mb-8 max-w-lg leading-relaxed"> {/* Changed text to dark slate */}
-            Superior Strength. That Lasts Generations.
+          <div className="inline-block px-6 py-2 bg-brand-primary/10 backdrop-blur-md rounded-full border border-brand-primary/30 mb-8">
+            <span className="text-brand-accent text-xl md:text-3xl font-black uppercase tracking-[0.2em]">
+              30 YEARS STRONG
+            </span>
+          </div>
+          
+          <p className="text-lg md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">
+            Honest, reliable roofing services for Southern New Brunswick. Specializing in durable metal, shingle, and flat roofing that stands the test of time.
           </p>
           
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+          <div className="flex justify-center">
             <Button 
               size="lg" 
-              variant="redCta" // Changed to new redCta variant
-              onClick={() => document.getElementById('visualizer')?.scrollIntoView({behavior: 'smooth'})}
+              variant="secondary"
+              className="px-12 py-5 text-xl font-black tracking-widest uppercase bg-[#2d4b7a] hover:bg-[#1e3250] rounded-lg shadow-2xl transition-all duration-300"
+              onClick={() => document.getElementById('quote')?.scrollIntoView({behavior: 'smooth'})}
             >
-              SEE YOUR NEW ROOF <ArrowRight className="ml-2 w-5 h-5" />
+              GET A QUOTE
             </Button>
-            {/* New "Get a Quote" button */}
-            <Button 
-              size="lg" 
-              variant="primary" 
-              onClick={() => document.getElementById('visualizer')?.scrollIntoView({behavior: 'smooth'})}
-            >
-              Get a Quote
-            </Button>
-            
-            <div className="flex flex-col items-center sm:items-start text-brand-dark text-sm"> {/* Changed text to dark */}
-              <a href={`tel:${PHONE_NUMBER}`} className="flex items-center space-x-2 text-xl font-extrabold mb-1 hover:text-brand-primary transition-colors">
-                <Phone className="w-5 h-5" />
-                <span>{PHONE_NUMBER}</span>
-              </a>
-              <p className="text-slate-600">Try our interactive visualizer</p> {/* Changed text to dark slate */}
-            </div>
           </div>
         </div>
       </div>
