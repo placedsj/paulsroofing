@@ -1,4 +1,3 @@
-
 import { Hammer, Home, ShieldCheck, Wrench, Layout } from 'lucide-react';
 import { NavItem, ServiceItem, TestimonialItem } from './types';
 
@@ -9,11 +8,8 @@ export const ADDRESS = "Southern New Brunswick";
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
-  { label: 'Our Workmanship', href: '#workmanship' },
-  { label: 'Financing', href: '#financing' },
-  { label: 'Handbook', href: '#handbook' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Get a Quote', href: '#quote' },
+  { label: 'About Paul', href: '#about' },
+  { label: 'Reviews', href: '#testimonials' },
 ];
 
 export const SERVICE_AREAS = [
@@ -36,25 +32,25 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'metal',
     title: 'Metal Roofing',
-    description: 'The ultimate in durability and longevity. Our metal roofs are energy-efficient, weather-resistant, and come in a variety of modern styles and colors to enhance your home\'s curb appeal.',
+    description: 'The ultimate in durability. Our metal roofs are energy-efficient, weather-resistant, and come in modern styles to enhance your home\'s curb appeal.',
     Icon: ShieldCheck,
-    image: 'input_file_28.png',
+    image: '/input_file_28.png',
     features: ["Energy Efficient", "Weather Resistant", "Maximum Longevity", "Modern Styles"]
   },
   {
     id: 'shingle',
     title: 'Shingle Roofing',
-    description: 'A classic and versatile choice. We use high-grade architectural shingles that offer excellent protection and a wide range of colors to perfectly match your home\'s aesthetic.',
+    description: 'A classic choice. We use high-grade architectural shingles that offer excellent protection and a wide range of colors to match your home.',
     Icon: Layout,
-    image: 'input_file_24.png',
+    image: '/input_file_24.png',
     features: ["Architectural Grade", "Versatile Design", "Superior Protection", "Diverse Colors"]
   },
   {
     id: 'flat',
     title: 'Flat Roofing',
-    description: 'Specialized solutions for low-slope or flat roofs. We install high-quality membrane systems that provide superior, leak-proof protection for modern homes and commercial buildings.',
+    description: 'Specialized solutions for low-slope roofs. We install high-quality membrane systems that provide leak-proof protection.',
     Icon: Wrench,
-    image: 'input_file_30.png',
+    image: '/input_file_30.png',
     features: ["Leak-Proof Systems", "Membrane Technology", "Commercial Grade", "Superior Seal"]
   }
 ];
@@ -74,12 +70,12 @@ export const ROOF_MATERIALS = [
 ];
 
 export const GALLERY_IMAGES = [
-  'input_file_21.png',
-  'input_file_22.png',
-  'input_file_23.png',
-  'input_file_24.png',
-  'input_file_27.png',
-  'input_file_28.png'
+  '/input_file_21.png',
+  '/input_file_22.png',
+  '/input_file_23.png',
+  '/input_file_24.png',
+  '/input_file_27.png',
+  '/input_file_28.png'
 ];
 
 export const TESTIMONIALS: TestimonialItem[] = [

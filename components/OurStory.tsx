@@ -9,7 +9,7 @@ export const OurStory: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-8 border-slate-50">
               <img 
-                src="input_file_30.png" 
+                src="/input_file_30.png" 
                 alt="Paul Curry working on a roof" 
                 loading="lazy"
                 decoding="async"

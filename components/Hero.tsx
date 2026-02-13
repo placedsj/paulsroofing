@@ -6,7 +6,7 @@ export const Hero: React.FC = () => {
     <section className="relative h-screen min-h-[700px] flex items-center justify-center pt-20 overflow-hidden bg-brand-dark">
       <div className="absolute inset-0 z-0">
         <img 
-          src="input_file_24.png" 
+          src="/input_file_24.png" 
           alt="Roofing project background" 
           className="w-full h-full object-cover animate-ken-burns opacity-40 grayscale-[30%]"
         />
